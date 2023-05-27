@@ -23,23 +23,24 @@ const VALID_TYPES = [
 export default {
   name: 'c-input',
   props: {
+    modelValue: {
+      type: [String, Number],
+      default: null,
+    },
     type: {
       type: String,
       default: 'text',
       validator: (value) => VALID_TYPES.includes(value),
-    },
-    value: {
-      type: [String, Number],
-      default: null,
     },
     label: {
       type: String,
       default: null,
     },
   },
+  emits: ['update:modelValue'],
   data() {
     return {
-      inputValue: this.value,
+      inputValue: this.modelValue,
       defaultInputClasses: defaultInputClasses(),
     };
   },
@@ -49,11 +50,11 @@ export default {
     },
   },
   watch: {
-    value(newValue) {
+    modelValue(newValue) {
       this.inputValue = newValue;
     },
     inputValue(newValue) {
-      this.$emit('input', newValue);
+      this.$emit('update:modelValue', newValue);
     },
   },
 };
