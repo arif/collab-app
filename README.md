@@ -1,11 +1,11 @@
 # collab-app
 
-## Project setup
+## Install dependencies
 ```
 yarn install
 ```
 
-### Compiles and hot-reloads for development
+### Run project locally
 ```
 yarn serve
 ```
