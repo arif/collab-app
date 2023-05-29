@@ -55,6 +55,27 @@ class API {
 
     return http.document(options);
   }
+
+  // D2
+  static async getDocument(documentId) {
+    const options = {
+      method: 'get',
+      url: encodeURI(`/documents/${documentId}/`),
+    };
+
+    return http.document(options);
+  }
+
+  // D3
+  static async createDocument(params) {
+    const options = {
+      method: 'post',
+      url: '/documents/',
+      data: params,
+    };
+
+    return http.document(options);
+  }
 }
 
 export default API;

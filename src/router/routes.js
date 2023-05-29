@@ -45,6 +45,12 @@ export default [
         component: () => import('@/pages/documents/list'),
         meta: { title: 'Document List', requiresAuth: true },
       },
+      {
+        path: 'edit/:documentId',
+        name: 'DocumentEdit',
+        component: () => import('@/pages/documents/edit'),
+        meta: { title: 'Document Edit', requiresAuth: true },
+      },
     ],
   },
 ];

@@ -1,8 +1,8 @@
 <template>
   <div class="
     flex flex-col relative bg-collab-50 rounded-md px-5 py-3 w-52 h-80 shadow-sm hover:shadow-xl hover:scale-[1.02] transition cursor-pointer
-  ">
-    <span class="text-gray-900 text-xl relative z-10">{{ item.title }}</span>
+  " @click="editDocument">
+    <span class="text-gray-900 text-xl relative z-10">{{ item.title || 'Untitled Document' }}</span>
     <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#bfc3e2" class="w-40 h-40">
         <path v-for="(p, i) in iconPaths" :key="`icon-path-${i}`" :fill-rule="p.fillRule" :clip-rule="p.clipRule" :d="p.d" />
@@ -38,6 +38,11 @@ export default {
           d: 'M12.971 1.816A5.23 5.23 0 0114.25 5.25v1.875c0 .207.168.375.375.375H16.5a5.23 5.23 0 013.434 1.279 9.768 9.768 0 00-6.963-6.963z',
         },
       ];
+    },
+  },
+  methods: {
+    editDocument() {
+      this.$router.push({ name: 'DocumentEdit', params: { documentId: this.item.id } });
     },
   },
 };
